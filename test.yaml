@@ -1,0 +1,2 @@
+db_pruebas:
+    url_conexion: "postgres://golang:galileo.1564@localhost/golangt1?sslmode=disable"
