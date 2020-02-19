@@ -2,35 +2,13 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
 
-	"gopkg.in/yaml.v2"
+	"github.com/OrlandoHdz/yamltest/leeyaml"
 )
 
-type conf struct {
-	DbPruebas struct {
-		URLConexion string `yaml:"url_conexion"`
-	} `yaml:"db_pruebas"`
-}
-
-func (c *conf) getConf() *conf {
-
-	yamlFile, err := ioutil.ReadFile("test.yaml")
-	if err != nil {
-		log.Printf("yamlFile.Get err   #%v ", err)
-	}
-	err = yaml.Unmarshal(yamlFile, c)
-	if err != nil {
-		log.Fatalf("Unmarshal: %v", err)
-	}
-
-	return c
-}
-
 func main() {
-	var c conf
-	c.getConf()
+	var c leeyaml.Conf
+	c.GetConf()
 
 	fmt.Println(c)
 	fmt.Println(c.DbPruebas)
